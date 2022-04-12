@@ -18,7 +18,6 @@ class Customer(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='products', default='python.png')
     price = models.IntegerField()
 
     def __str__(self):

@@ -4,16 +4,18 @@ from django.contrib import admin
 from .models import Product, Order, Customer, ProductOrder
 
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'email')
+    list_display = ('email', 'first_name', 'last_name')
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'image', 'price')
+    list_display = ('name', 'price')
 
 class ProductOrderAdmin(admin.ModelAdmin):
     list_display = ('Order', 'product', 'quantity')
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('Product', 'Customer', 'date', 'Status')
+
+
 
 
 admin.site.register(Product, ProductAdmin)
