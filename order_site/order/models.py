@@ -25,13 +25,12 @@ class Product(models.Model):
         return self.name
 
 class Order(models.Model):
+    Product= models.ForeignKey('Product', on_delete=models.SET_NULL, null=True)
     Customer = models.ForeignKey('Customer', on_delete=models.SET_NULL, null=True)
-    # product =  models.ForeignKey(Product, on_delete=models.CASCADE)
-    # quantity = models.IntegerField()
     date = models.DateField(("Date"), default=date.today)
-    # user = models.CharField(max_length=140, default='')
+
     LOAN_STATUS = (
-        ('a', 'Pirkti'),
+        ('a', 'Nupirkti'),
         ('p', 'Rezervuoti'),
     )
     Status = models.CharField(
@@ -44,9 +43,9 @@ class Order(models.Model):
     def __str__(self):
         return str(self.Customer)
 
+
 class ProductOrder(models.Model):
     Order = models.ForeignKey('Customer', on_delete=models.SET_NULL, null=True)
-    # user = models.CharField(max_length=140, default='')
     product =  models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField()
 
@@ -54,8 +53,3 @@ class ProductOrder(models.Model):
     def __str__(self):
         return str(self.Order)
 
-class Status(models.Model):
-    name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return str(self.name)
