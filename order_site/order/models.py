@@ -19,7 +19,6 @@ class Customer(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=50)
     price = models.IntegerField()
-    image = models.ImageField(upload_to='products', default='python.png')
     def __str__(self):
         return self.name
 
