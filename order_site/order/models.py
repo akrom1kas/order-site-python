@@ -10,15 +10,13 @@ class Customer(models.Model):
     class Meta:
         ordering = ['last_name', 'first_name', 'email']
 
-    def get_absolute_url(self):
-        return reverse('customer-detail', args=[str(self.id)])
-
     def __str__(self):
         return f'{self.last_name} {self.first_name} {self.email} '
 
 class Product(models.Model):
     name = models.CharField(max_length=50)
     price = models.IntegerField()
+
     def __str__(self):
         return self.name
 
